@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
 class CategoryController extends FrontendController
 {
@@ -44,8 +44,7 @@ class CategoryController extends FrontendController
             if ($request->rv) $products->where('pro_review_star',$request->rv);
             if ($request->sort) $products->orderBy('pro_price',$request->sort);
 
-            $products = $products->select('id','pro_name','pro_slug','pro_sale','pro_avatar','pro_price','pro_review_total','pro_review_star')
-                ->paginate(12);
+            $products = $products->paginate(12);
 
             $modelProduct = new Product();
 

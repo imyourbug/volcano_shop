@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\DB;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -28,7 +29,9 @@ class Handler extends ExceptionHandler
         });
         $this->renderable(
             function (Throwable $e, $request) {
-                dd($e);
+                // dd($e);
+                DB::rollBack();
+
                 return response()->json([
                     'status' => 1,
                     'error' => [

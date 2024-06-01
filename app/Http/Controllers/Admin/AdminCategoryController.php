@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequestCategory;
-use Illuminate\Support\Str;
-use Carbon\Carbon;
 use App\Models\Category;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminCategoryController extends AdminController
 {
@@ -35,7 +35,7 @@ class AdminCategoryController extends AdminController
         if ($request->c_avatar) {
             $image = upload_image('c_avatar');
             if ($image['code'] == 1)
-                $data['c_avatar'] = $image['name'];
+                $data['c_avatar'] = $image['path_img'];
         }
 
         $id = Category::insertGetId($data);
@@ -59,7 +59,7 @@ class AdminCategoryController extends AdminController
         if ($request->c_avatar) {
             $image = upload_image('c_avatar');
             if ($image['code'] == 1)
-                $data['c_avatar'] = $image['name'];
+                $data['c_avatar'] = $image['path_img'];
         }
 
         $category->update($data);

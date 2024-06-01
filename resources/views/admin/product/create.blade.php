@@ -16,9 +16,9 @@
     </section>
     <!-- Main content -->
     <section class="content">
-   
+
         @include('admin.product.form')
- 
+
 </section>
     <!-- /.content -->
 @stop

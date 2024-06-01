@@ -10,6 +10,19 @@
             display: '{{ $display_menu }}';
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="/css/product_search.min.css">
+    <style>
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+
+        }
+        .pagination li {
+            margin: 0px 10px;
+
+        }
+    </style>
 @stop
 
 @section('content')
@@ -159,21 +172,19 @@
                 </div>
             @endif
         @endforeach
-        {{-- <div class="product-two">
+        <div class="product-two">
             <div class="top">
                 <a href="#" class="main-title" style="font-weight:600">SẢN PHẨM KHÁC</a>
             </div>
-            <div class="bot">
+            <div class="bot" style="display: flex; flex-wrap:wrap">
                 @foreach ($products as $product)
                     <div class="item">
                         @include('frontend.components.product_item', ['product' => $product])
                     </div>
                 @endforeach
             </div>
-        </div> --}}
-        {{-- <div class="pagination float-right margin-20">
-            {!! $products->links() !!}
-        </div> --}}
+        </div>
+        {!! $products->links() !!}
         {{-- <div id="product-by-category"></div> --}}
         @include('frontend.pages.home.include._inc_article')
     </div>

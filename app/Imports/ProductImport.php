@@ -114,6 +114,14 @@ class ProductImport implements
                 foreach ($product['pro_image'] as $pro_image) {
                     $fileName = $product['pro_alias'] . '-' . $j . '.jpg'; // Extract filename
                     $destinationPath = public_path($path . '/' . $fileName); // Define destination path
+                    if (file_exists($destinationPath)) {
+                        $productImages[] = [
+                            'pi_product_code' => $product['pro_code'],
+                            'pi_slug' => $path . '/' . $fileName,
+                        ];
+                        $j++;
+                        continue;
+                    }
                     try {
                         $contents = file_get_contents($pro_image); // Download image contents
                         if ($contents !== false) {

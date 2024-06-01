@@ -86,7 +86,7 @@ class HomeController extends FrontendController
                 'pro_active' => 1,
             ])
                 ->orderByDesc('id')
-                ->paginate(5)
+                ->paginate(20)
         ];
 
         return view('frontend.pages.home.index', $viewData);
@@ -106,7 +106,6 @@ class HomeController extends FrontendController
             $products = Product::whereIn('id', $listID)
                 ->orderByDesc('id')
                 ->limit(5)
-                ->select('id', 'pro_name', 'pro_slug', 'pro_sale', 'pro_avatar', 'pro_price', 'pro_review_total', 'pro_review_star')
                 ->get();
             $html = view('frontend.pages.home.include._recently', compact('products'))->render();
 

@@ -11378,8 +11378,8 @@ a:hover{
 .product-three .bot .left .image img {
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover
+    /* -o-object-fit: cover;
+    object-fit: cover */
 }
 
 .product-three .bot .right {

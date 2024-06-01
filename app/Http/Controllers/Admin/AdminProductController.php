@@ -11,6 +11,7 @@ use App\Models\Product;
 use App\Models\Supplier;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class AdminProductController extends Controller
@@ -59,15 +60,16 @@ class AdminProductController extends Controller
         if ($request->pro_avatar) {
             $image = upload_image('pro_avatar');
             if ($image['code'] == 1)
-                $data['pro_avatar'] = $image['name'];
+                $data['pro_avatar'] = $data['pro_image_version'] = $image['path_img'];
         }
 
         if ($request->pro_file) {
             $image = upload_image('pro_file');
             if ($image['code'] == 1)
-                $data['pro_file'] = $image['name'];
+                $data['pro_file'] = $image['path_img'];
         }
-
+        $data['pro_code'] = date('YmdHis');
+        DB::beginTransaction();
         $product = Product::create($data);
         if ($product) {
             $this->syncAttribute($request->attribute, $product->id);
@@ -76,6 +78,7 @@ class AdminProductController extends Controller
                 $this->syncAlbumImageAndProduct($request->file, $product->pro_code);
             }
         }
+        DB::commit();
 
         return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
     }
@@ -102,7 +105,7 @@ class AdminProductController extends Controller
         if (!$keywordOld)    $keywordOld = [];
 
         $images = \DB::table('product_images')
-            ->where("pi_product_code", $product->product_code ?? '')
+            ->where("pi_product_code", $product->pro_code ?? '')
             ->get();
 
         $viewData = [
@@ -132,13 +135,13 @@ class AdminProductController extends Controller
         if ($request->pro_avatar) {
             $image = upload_image('pro_avatar');
             if ($image['code'] == 1)
-                $data['pro_avatar'] = $image['name'];
+                $data['pro_avatar'] = $data['pro_image_version'] = $image['path_img'];
         }
 
         if ($request->pro_file) {
             $image = upload_image('pro_file');
             if ($image['code'] == 1)
-                $data['pro_file'] = $image['name'];
+                $data['pro_file'] = $image['path_img'];
         }
 
         $update = $product->update($data);
@@ -165,8 +168,8 @@ class AdminProductController extends Controller
 
             if (!in_array($ext, $extend)) return false;
 
-            $filename = date('Y-m-d__') . Str::slug($fileImage->getClientOriginalName()) . '.' . $ext;
-            $path = public_path() . '/uploads/' . date('Y/m/d/');
+            $filename = date('Y_m_d_H_i_s') . Str::slug($fileImage->getClientOriginalName()) . '.' . $ext;
+            $path = public_path() . '/uploads/';
             if (!\File::exists($path)) {
                 mkdir($path, 0777, true);
             }
@@ -175,7 +178,7 @@ class AdminProductController extends Controller
             \DB::table('product_images')
                 ->insert([
                     'pi_name' => $fileImage->getClientOriginalName(),
-                    'pi_slug' => $filename,
+                    'pi_slug' => 'uploads/' . $filename,
                     'pi_product_code' => $proCode,
                     'created_at' => Carbon::now()
                 ]);

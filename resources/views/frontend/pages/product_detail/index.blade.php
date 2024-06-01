@@ -36,7 +36,8 @@
                             <div class="row">
                                 @foreach ($images as $img)
                                     <div class="column">
-                                        <img class="demo cursor" src=" {{ pare_url_file($img->pi_slug) }}"
+                                        <img class="demo cursor"
+                                            src=" {{ !str_starts_with($img->pi_slug, '/') ? '/' . $img->pi_slug : $img->pi_slug }}"
                                             style="width:100%" onclick="currentSlide({{ $i++ }})">
                                     </div>
                                 @endforeach

@@ -114,7 +114,7 @@
                                         <div class="col-sm-2">
                                             <a href="{{ route('admin.product.delete_image', $item->id) }}"
                                                 style="display: block;">
-                                                <img src="{{ pare_url_file($item->pi_slug) }}"
+                                                <img src="{{ !str_starts_with($item->pi_slug, '/') ? '/' . $item->pi_slug : $item->pi_slug }}"
                                                     style="width: 70%;height: auto">
                                             </a>
                                         </div>
@@ -164,8 +164,10 @@
                                 <p class="mg-t-5">{{ $errors->first('images') }}</p>
                             </span>
                             @if (isset($product) && !empty($product->pro_avatar))
-                                <img src="{{ asset(pare_url_file($product->pro_avatar)) }}" alt=""
-                                    class="margin-auto-div img-rounded" id="image_render"
+                                <img src="{{ !str_starts_with($product->pro_image_version, '/')
+                                    ? '/' . $product->pro_image_version
+                                    : $product->pro_image_version }}"
+                                    alt="" class="margin-auto-div img-rounded" id="image_render"
                                     style="height: 150px; width:100%;">
                             @else
                                 <img src="{{ asset('admin/dist/img/no-image.png') }}" alt=""

@@ -31,12 +31,10 @@ if (!function_exists('upload_image')) {
 
         // Tên file mới
         $nameFile = trim(str_replace('.' . $ext, '', strtolower($info->getFilename())));
-        $filename = date('Y-m-d__') . \Illuminate\Support\Str::slug($nameFile) . '.' . $ext;;
+        $filename = date('Y_m_d_H_i_s') . \Illuminate\Support\Str::slug($nameFile) . '.' . $ext;;
 
         // thu muc goc de upload
-        $path = public_path() . '/uploads/' . date('Y/m/d/');
-        if ($folder)
-            $path = public_path() . '/uploads/' . $folder . '/' . date('Y/m/d/');
+        $path = public_path() . '/uploads/';
 
         if (!\File::exists($path))
             mkdir($path, 0777, true);
@@ -193,6 +191,6 @@ if (!function_exists('check_admin'))
 if (!function_exists('getUrlProductImage')) {
     function getUrlProductImage($url, $folder = '')
     {
-        // return 
+        // return
     }
 }
