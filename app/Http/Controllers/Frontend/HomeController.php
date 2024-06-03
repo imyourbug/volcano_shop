@@ -68,6 +68,7 @@ class HomeController extends FrontendController
             ->get();
 
         $categories = Category::with(['products'])
+            ->where('c_parent_id', 0)
             ->orderByDesc('id')
             ->get();
 
