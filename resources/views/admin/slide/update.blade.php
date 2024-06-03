@@ -17,7 +17,6 @@
     </section>
     <!-- Main content -->
     <section class="content">
-
         <form role="form" action="" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -71,7 +70,7 @@
                                             <span class="text-danger">{{ $errors->first('sd_sort') }}</span>
                                         @endif
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -110,8 +109,8 @@
                                     <p class="mg-t-5">{{ $errors->first('sd_avatar') }}</p>
                                 </span>
                                 @if (isset($slide) && !empty($slide->sd_image))
-                                    <img src="{{ asset(pare_url_file($slide->sd_image)) }}" alt=""
-                                        class="margin-auto-div img-rounded" id="image_render"
+                                    <img src="{{ !str_starts_with($slide->sd_image, '/') ? '/' . $slide->sd_image : $slide->sd_image }}"
+                                        alt="" class="margin-auto-div img-rounded" id="image_render"
                                         style="height: 150px; width:100%;">
                                 @else
                                     <img src="{{ asset('admin/dist/img/no-image.png') }}" alt=""

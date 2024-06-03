@@ -488,7 +488,7 @@ ul li {
     }
 
     .desktop {
-        display: none !important
+        /* display: none !important */
     }
 
     .mobile {
@@ -2222,7 +2222,7 @@ p {
     }
 
     #headers .logo .desktop {
-        display: none
+        /* display: none */
     }
 
     #headers .logo .mobile {

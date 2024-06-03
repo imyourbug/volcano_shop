@@ -100,7 +100,7 @@
                 style="background-color: rgb(135, 164, 177)">
                 <img src="{{ asset('images/logoC.png') }}" alt="Home" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight:600;" style="color:rgb(18, 95, 24)">Admin DECEMBER</span>
+                <span class="brand-text font-weight:600;" style="color:rgb(18, 95, 24)">Admin Volcano</span>
             </a>
 
             <!-- Sidebar -->
@@ -186,7 +186,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>DECEMBERSHOP BY <a href="#">Author</a></strong>
+            <strong>VolcanoSHOP BY <a href="#">Author</a></strong>
 
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0

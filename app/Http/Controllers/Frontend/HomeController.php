@@ -68,6 +68,7 @@ class HomeController extends FrontendController
             ->get();
 
         $categories = Category::with(['products'])
+            ->where('c_parent_id', 0)
             ->orderByDesc('id')
             ->get();
 
@@ -79,7 +80,7 @@ class HomeController extends FrontendController
             'event2'        => $event2,
             'event3'        => $event3,
             'event4'        => $event4,
-            'title_page'    => " Trang Chủ | December",
+            'title_page'    => " Trang Chủ | Volcano",
             'articlesHot'   => $articlesHot,
             'categories'   => $categories,
             'products'   => Product::where([

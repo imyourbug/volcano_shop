@@ -1,4 +1,3 @@
-
 <div id="flash_sale">
     {{-- <div class="head_text">
         <div style="text-align: center;position: absolute;bottom: 5px;width: 160px;left: calc(50% + 100px);border-radius: 25px;border: 1px solid #CCC;">
@@ -6,7 +5,9 @@
         </div>
     </div> --}}
     <a href="{{ $event2->e_link }}" title="" class="image" target="_blank">
-        <img  alt="" style="height:250px;"  src="{{ pare_url_file($event2->e_banner) }}" class="lazyload" width="100%" />
+        <img alt="" style="height:250px;"
+            src="{{ !str_starts_with($event2->e_banner, '/') ? '/' . $event2->e_banner : $event2->e_banner }}"
+            class="lazyload" width="100%" />
     </a>
 
 </div>

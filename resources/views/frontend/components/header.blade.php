@@ -19,12 +19,11 @@
         </div>
     </div>
 </section>
-<section class="top-header mobile"
+{{-- <section class="top-header mobile"
     style="background: {{ config('layouts.component.header-top.background') }} !important ">
     <div class="container">
         <div class="content">
             <div class="left">
-                {{--                <a href="{{ route('get.static.customer_care') }}" title="Chăm sóc khách hàng" rel="nofollow">Chăm sóc khách hàng</a> --}}
                 <a href="{{ route('get.user.transaction') }}" title="Kiểm tra đơn hàng" rel="nofollow">KIỂM TRA ĐƠN
                     HÀNG</a>
                 @if (Auth::check())
@@ -38,7 +37,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <div class="commonTop">
     <div id="headers" style="background: {{ config('layouts.component.menu.background') }} ">

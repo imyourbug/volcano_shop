@@ -43,13 +43,13 @@ class AdminEventController extends Controller
         if ($request->e_position_4) {
             $data['e_position_4'] = 1;
         }
-        
+
 
         if ($request->e_banner) {
             $image = upload_image('e_banner');
-            if ($image['code'] == 1) 
-                $data['e_banner'] = $image['name'];
-        } 
+            if ($image['code'] == 1)
+                $data['e_banner'] = $image['path_img'];
+        }
 
         $id = Event::insertGetId($data);
         return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
@@ -91,13 +91,13 @@ class AdminEventController extends Controller
         }else{
             $data['e_position_4'] = 0;
         }
-        
+
 
         if ($request->e_banner) {
             $image = upload_image('e_banner');
-            if ($image['code'] == 1) 
-                $data['e_banner'] = $image['name'];
-        } 
+            if ($image['code'] == 1)
+                $data['e_banner'] = $image['path_img'];
+        }
 
         $update = $event->update($data);
         return redirect()->back()->with('success', 'Lưu dữ liệu thành công');

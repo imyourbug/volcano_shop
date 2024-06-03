@@ -19,17 +19,17 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     </head>
     <body class="hold-transition login-page">
-        
+
 
         <div class="login-box">
             <div class="login-logo">
                 <a href="#" style="color: rgb(41, 99, 32); font-weight: 600"><b>ĐĂNG NHẬP
-                    <br>DECEMBER SHOP</b></a>
+                    <br>VOLCANO SHOP</b></a>
         </div>
             <!-- /.login-logo -->
             <div class="card">
                 <div class="card-body login-card-body">
-                    <p class="login-box-msg">Đăng nhập admin Decembercosmetic</p>
+                    <p class="login-box-msg">Đăng nhập admin Volcano</p>
                     @if (session('danger'))
                         <p class="login-box-msg text-danger">{{ session('danger') }}</p>
                     @endif

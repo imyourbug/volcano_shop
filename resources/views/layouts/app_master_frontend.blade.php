@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>{{ $title_page ?? 'December' }}</title>
+    <title>{{ $title_page ?? 'Volcano' }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" sizes="32x32" type="image/png" href="{{ asset('ico.png') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
@@ -29,6 +29,9 @@
         .product-item a h3 {
             font-size: 14px !important;
         }
+        .product_details_content img{
+            width: 100% !important;
+        }
     </style>
 </head>
 
@@ -44,7 +47,7 @@
     <script>
         // var botmanWidget = {
         //     aboutText: 'Start the conversation with Hi',
-        //     introMessage: "Chào bạn đến với tư vấn sản phẩm của DC December"
+        //     introMessage: "Chào bạn đến với tư vấn sản phẩm của DC Volcano"
         // };
         $(document).on('click', '.btn-open-menu', function() {
             $('#menu-main').css('display', $('#menu-main').css('display') == 'none' ? 'block' : 'none');

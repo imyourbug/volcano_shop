@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequestSlide;
-use Carbon\Carbon;
 use App\Models\Slide;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class AdminSlideController extends Controller
 {
@@ -29,9 +29,9 @@ class AdminSlideController extends Controller
 
         if ($request->sd_avatar) {
             $image = upload_image('sd_avatar');
-            if ($image['code'] == 1) 
-                $data['sd_image'] = $image['name'];
-        } 
+            if ($image['code'] == 1)
+                $data['sd_image'] = $image['path_img'];
+        }
 
         $id = Slide::insertGetId($data);
         return redirect()->back()->with('success', 'Lưu dữ liệu thành công');
@@ -50,9 +50,9 @@ class AdminSlideController extends Controller
 
         if ($request->sd_avatar) {
             $image = upload_image('sd_avatar');
-            if ($image['code'] == 1) 
-                $data['sd_image'] = $image['name'];
-        } 
+            if ($image['code'] == 1)
+                $data['sd_image'] = $image['path_img'];
+        }
 
         $update = $slide->update($data);
         return redirect()->back()->with('success', 'Lưu dữ liệu thành công');

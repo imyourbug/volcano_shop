@@ -488,7 +488,7 @@ ul li {
     }
 
     .desktop {
-        display: none !important
+        /* display: none !important */
     }
 
     .mobile {

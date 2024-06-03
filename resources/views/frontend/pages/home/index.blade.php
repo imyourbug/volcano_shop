@@ -12,12 +12,12 @@
     </style>
     <link rel="stylesheet" type="text/css" href="/css/product_search.min.css">
     <style>
-    <style>
-        .pagination {
+        <style>.pagination {
             display: flex;
             justify-content: center;
 
         }
+
         .pagination li {
             margin: 0px 10px;
 
@@ -58,7 +58,6 @@
         @endif
     </div>
     <div class="container" id="before-slide">
-
         <div class="product-one">
             <div class="top">
                 <a href="#" title="" class="main-title" style="font-weight:600">SẢN PHẨM BÁN CHẠY</a>
@@ -80,7 +79,7 @@
                             <a href="{{ $event1->e_link }}" title="" class="{{ $event1->e_name }}" target="_blank">
                                 <img style="height: 310px;" class="lazyload lazy" alt="{{ $event1->e_name }}"
                                     src="{{ asset('images/preloader.gif') }}"
-                                    data-src="{{ pare_url_file($event1->e_banner) }}" />
+                                    data-src="{{ !str_starts_with($event1->e_banner, '/') ? '/' . $event1->e_banner : $event1->e_banner }}" />
                             </a>
                         </div>
                     </div>
@@ -122,7 +121,7 @@
                             <a href="{{ $event3->e_link }}" title="" class="{{ $event3->e_name }}" target="_blank">
                                 <img style="height: 310px;" class="lazyload lazy" alt="{{ $event3->e_name }}"
                                     src="{{ asset('images/preloader.gif') }}"
-                                    data-src="{{ pare_url_file($event3->e_banner) }}" />
+                                    data-src="{{ !str_starts_with($event3->e_banner, '/') ? '/' . $event3->e_banner : $event3->e_banner }}" />
                             </a>
                         @endif
                     </div>
@@ -195,7 +194,7 @@
         var routeRenderProductRecently = '{{ route('ajax_get.product_recently') }}';
         var routeRenderProductByCategory = '{{ route('ajax_get.product_by_category') }}';
         var routeRenderSlide = '{{ route('ajax_get.slide') }}';
-        var CSS = "{{ asset('css/home.min.css') }}";
+        var CSS = "{{ asset('css/home.min.css?v=1') }}";
         <?php $js = file_get_contents('js/home.js');
         echo $js; ?>
     </script>
