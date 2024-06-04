@@ -54,6 +54,9 @@
         <div class="" style="clear: both"></div>
     </div>
     @include('frontend.components.footer')
+    <div class="zalo-chat-widget" data-oaid="1925636855218148675" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="" data-height=""></div>
+
+<script src="https://sp.zalo.me/plugins/sdk.js"></script>
     <script>
         var DEVICE = '{{ device_agent() }}'
     </script>

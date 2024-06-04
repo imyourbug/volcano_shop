@@ -58,45 +58,45 @@
         @endif
     </div>
     <div class="container" id="before-slide">
-        <div class="product-one">
-            <div class="top">
-                <a href="#" title="" class="main-title" style="font-weight:600">SẢN PHẨM BÁN CHẠY</a>
-                @if (isset($productsPay))
-                    @foreach ($productsPay as $product)
-                        <div class="item">
-                            @include('frontend.components.product_item', ['product' => $product])
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-            <div class="bot">
-                {{--  @for ($i = 1; $i <= 5; $i++) --}}
-                {{-- <div></div> --}}
-                {{-- @endfor --}}
-                @if ($event1)
-                    <div class="left">
-                        <div class="image">
-                            <a href="{{ $event1->e_link }}" title="" class="{{ $event1->e_name }}" target="_blank">
-                                <img style="height: 310px;" class="lazyload lazy" alt="{{ $event1->e_name }}"
-                                    src="{{ asset('images/preloader.gif') }}"
-                                    data-src="{{ !str_starts_with($event1->e_banner, '/') ? '/' . $event1->e_banner : $event1->e_banner }}" />
-                            </a>
-                        </div>
-                    </div>
-                @endif
-                <div class="right js-product-one owl-carousel owl-theme owl-custom">
-                    @foreach ($productsPay as $product)
-                        <div class="item">
-                            @include('frontend.components.product_item', ['product' => $product])
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
+        <!--<div class="product-one">-->
+        <!--    <div class="top">-->
+        <!--        <a href="#" title="" class="main-title" style="font-weight:600">SẢN PHẨM BÁN CHẠY</a>-->
+        <!--        @if (isset($productsPay))-->
+        <!--            @foreach ($productsPay as $product)-->
+        <!--                <div class="item">-->
+        <!--                    @include('frontend.components.product_item', ['product' => $product])-->
+        <!--                </div>-->
+        <!--            @endforeach-->
+        <!--        @endif-->
+        <!--    </div>-->
+        <!--    <div class="bot">-->
+        <!--        {{--  @for ($i = 1; $i <= 5; $i++) --}}-->
+        <!--        {{-- <div></div> --}}-->
+        <!--        {{-- @endfor --}}-->
+        <!--        @if ($event1)-->
+        <!--            <div class="left">-->
+        <!--                <div class="image">-->
+        <!--                    <a href="{{ $event1->e_link }}" title="" class="{{ $event1->e_name }}" target="_blank">-->
+        <!--                        <img style="height: 310px;" class="lazyload lazy" alt="{{ $event1->e_name }}"-->
+        <!--                            src="{{ asset('images/preloader.gif') }}"-->
+        <!--                            data-src="{{ !str_starts_with($event1->e_banner, '/') ? '/' . $event1->e_banner : $event1->e_banner }}" />-->
+        <!--                    </a>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        @endif-->
+        <!--        <div class="right js-product-one owl-carousel owl-theme owl-custom">-->
+        <!--            @foreach ($productsPay as $product)-->
+        <!--                <div class="item">-->
+        <!--                    @include('frontend.components.product_item', ['product' => $product])-->
+        <!--                </div>-->
+        <!--            @endforeach-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</div>-->
 
-        @if ($event2)
-            @include('frontend.pages.home.include._inc_flash_sale')
-        @endif
+        <!--@if ($event2)-->
+        <!--    @include('frontend.pages.home.include._inc_flash_sale')-->
+        <!--@endif-->
 
         <div class="product-two">
             <div class="top">
@@ -137,24 +137,24 @@
                 </div>
             </div>
         </div>
-        <div class="product-two">
-            <div class="top">
-                <a href="#" class="main-title" style="font-weight:600">SẢN PHẨM NỔI BẬT</a>
-            </div>
-            <div class="bot">
-                @if (isset($productsHot))
-                    @foreach ($productsHot as $product)
-                        <div class="item">
-                            @include('frontend.components.product_item', ['product' => $product])
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-        </div>
+        <!--<div class="product-two">-->
+        <!--    <div class="top">-->
+        <!--        <a href="#" class="main-title" style="font-weight:600">SẢN PHẨM NỔI BẬT</a>-->
+        <!--    </div>-->
+        <!--    <div class="bot">-->
+        <!--        @if (isset($productsHot))-->
+        <!--            @foreach ($productsHot as $product)-->
+        <!--                <div class="item">-->
+        <!--                    @include('frontend.components.product_item', ['product' => $product])-->
+        <!--                </div>-->
+        <!--            @endforeach-->
+        <!--        @endif-->
+        <!--    </div>-->
+        <!--</div>-->
         @if ($event4)
             @include('frontend.pages.home.include._inc_flash_sale2');
         @endif
-        <div class="product-two" id="product-recently"></div>
+        <!--<div class="product-two" id="product-recently"></div>-->
         @foreach ($categories as $category)
             @if ($category->products && $category->products->count())
                 <div class="product-two">
@@ -171,19 +171,19 @@
                 </div>
             @endif
         @endforeach
-        <div class="product-two">
-            <div class="top">
-                <a href="#" class="main-title" style="font-weight:600">SẢN PHẨM KHÁC</a>
-            </div>
-            <div class="bot" style="display: flex; flex-wrap:wrap">
-                @foreach ($products as $product)
-                    <div class="item">
-                        @include('frontend.components.product_item', ['product' => $product])
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        {!! $products->links() !!}
+        <!--<div class="product-two">-->
+        <!--    <div class="top">-->
+        <!--        <a href="#" class="main-title" style="font-weight:600">SẢN PHẨM KHÁC</a>-->
+        <!--    </div>-->
+        <!--    <div class="bot" style="display: flex; flex-wrap:wrap">-->
+        <!--        @foreach ($products as $product)-->
+        <!--            <div class="item">-->
+        <!--                @include('frontend.components.product_item', ['product' => $product])-->
+        <!--            </div>-->
+        <!--        @endforeach-->
+        <!--    </div>-->
+        <!--</div>-->
+        <!--{!! $products->links() !!}-->
         {{-- <div id="product-by-category"></div> --}}
         @include('frontend.pages.home.include._inc_article')
     </div>

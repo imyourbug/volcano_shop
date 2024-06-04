@@ -11083,7 +11083,7 @@
 
 @media(max-width:767px) {
     #slider .owl-carousel .owl-item img {
-        height: 140px;
+        height: 200px !important;
         /* -o-object-fit: cover;
         object-fit: cover */
     }
