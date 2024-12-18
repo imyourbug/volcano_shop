@@ -26,9 +26,9 @@ class CategoryController extends FrontendController
             ]);
 
             $availableAttr = Attribute::selectRaw("distinct atb_type")->pluck("atb_type")->toArray() ?? [];
-            $availableAttr = array_unique(array_map(function ($item) {
+            $availableAttr = array_map(function ($item) {
                 return "attr_" . $item;
-            }, $availableAttr));
+            }, $availableAttr);
             
             $paramAtbSearch =  $request->only(...$availableAttr);
             $paramAtbSearch =  array_values($paramAtbSearch);
